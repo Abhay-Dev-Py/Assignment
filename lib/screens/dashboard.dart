@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import 'log_in.dart';
-
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
 
@@ -37,22 +35,11 @@ class _DashBoardState extends State<DashBoard> {
   void initState() {
     super.initState();
     scrollcontroller..addListener(pagination);
-    checkForData();
+
     getData();
   }
 
   String name = '', email = '', userName = '';
-
-  void checkForData() async {
-    SharedPreferences sf = await SharedPreferences.getInstance();
-    String? key = sf.getString('uniqueKey');
-    List<String> keywords = key!.split('/');
-    setState(() {
-      name = keywords[2] + " " + keywords[3];
-      email = keywords[4];
-      userName = keywords[0];
-    });
-  }
 
   void pagination() async {
     if ((scrollcontroller.position.pixels >=
@@ -100,7 +87,6 @@ class _DashBoardState extends State<DashBoard> {
                   String sourceImageAvatar = data[index]['avatar'].toString();
                   return InkWell(
                     onTap: () {
-                      
                       //Redirect to details page
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
