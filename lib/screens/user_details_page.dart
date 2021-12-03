@@ -77,11 +77,11 @@ class _UserDetailsState extends State<UserDetails> {
                               fontSize: 20,
                               fontWeight: FontWeight.w400,
                               textBaseline: TextBaseline.alphabetic)),
-                      Text(
-                        'Click Me',
-                        style: TextStyle(),
-                        textAlign: TextAlign.center,
-                      )
+//                       Text(
+//                         'Click Me',
+//                         style: TextStyle(),
+//                         textAlign: TextAlign.center,
+//                       )
                     ],
                   ),
                 ),
